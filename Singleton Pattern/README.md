@@ -144,3 +144,7 @@ const singletonTest = SingletonTester.getInstance({
 // Outputs: 5
 console.log(singletonTest.pointX);
 ```
+
+## 여담
+
+instance가 없을 경우 instance를 생성하는 과정에서 Object.freeze 메소드를 통해 속성을 추가하지 못하도록 보호해도 괜찮을 것 같다.
