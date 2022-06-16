@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="addNewObserver">Add New Observer checkbox</button>
+    <input id="mainCheckbox" type="checkbox" />
+    <div id="observersContainer"></div>
+    <script src="./app.js"></script>
+    <script>
+      const addBtn = document.getElementById("addNewObserver");
+      const container = document.getElementById("observersContainer");
+      const controlCheckbox = new ConcreteSubject(
+        document.getElementById("mainCheckbox")
+      );
+
+      const addNewObserver = () => {
+        const check = document.createElement("input");
+        check.type = "checkbox";
+        const checkObserver = new ConcreteObserver(check);
+
+        controlCheckbox.addObserver(checkObserver);
+
+        container.appendChild(check);
+      };
+
+      addBtn.onclick = addNewObserver;
+    </script>
+  </body>
+</html>
