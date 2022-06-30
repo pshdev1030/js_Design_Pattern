@@ -164,6 +164,30 @@ class BasketModule {
 }
 ```
 
+또한 즉시실행 함수를 통해 만들수도 있다.
+
+```js
+(function () {
+  let counter = 0;
+
+  function increment() {
+    counter++;
+  }
+
+  function decrement() {
+    counter--;
+  }
+  function getCount() {
+    return counter;
+  }
+  return {
+    increment,
+    decrement,
+    getCount,
+  };
+});
+```
+
 참조를 약하게 유지하여 활성참조가 없는경우 GC의 대상이 된다.
 
 때문에 메모리 누수 관점에서 훨씬 메리트가 있는 것 같다.
